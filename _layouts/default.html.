@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio de Data Analyst</title>
+</head>
+<body>
+    <header>
+        <h1>Mon Portfolio de Data Analyst</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <section id="home">
+            <h2>Bienvenue</h2>
+            <p>Bienvenue sur mon portfolio. Je suis Data Analyst avec une passion pour les données.</p>
+        </section>
+        <section id="projects">
+            <h2>Projets</h2>
+            <p>Voici quelques-uns de mes projets :</p>
+            <ul>
+                <li>Projet 1 - Analyse des ventes</li>
+                <li>Projet 2 - Visualisation des données</li>
+                <!-- Ajoutez d'autres projets ici -->
+            </ul>
+        </section>
+        <section id="skills">
+            <h2>Compétences</h2>
+            <p>Python, R, SQL, Tableau, Power BI, etc.</p>
+        </section>
+        <section id="about">
+            <h2>À propos</h2>
+            <p>Je suis un Data Analyst avec un intérêt particulier pour l'analyse des données et la visualisation.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Pour me contacter, envoyez un email à : monemail@example.com</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Mon Nom. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
