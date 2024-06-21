@@ -1,21 +1,4 @@
-title: "Mon Portfolio de Data Analyst"
-email: "monemail@example.com"
-description: "Voici mon portfolio en ligne"
-baseurl: "" # Le chemin de base, e.g., /blog
-url: "https://monusername.github.io" # L'URL de votre site
 
 # Thème Jekyll
 theme: jekyll-theme-minimal
 
-# Gérer les liens de navigation
-nav:
-  home: "/"
-  projects: "/projects"
-  skills: "/skills"
-  about: "/about"
-  contact: "/contact"
-
-# Plugins Jekyll (optionnels)
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
