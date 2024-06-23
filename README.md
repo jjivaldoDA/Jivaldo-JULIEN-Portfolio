@@ -1,14 +1,3 @@
----
-layout: single
-title: "My Data Analysis Portfolio"
-description: "A collection of my data analysis projects showcasing my skills in SQL, Power BI, Python, and R."
-author: your_name
-toc: true
-toc_label: "Projects"
-toc_icon: "cog"
-classes: wide
----
-
 # My Data Analysis Portfolio
 
 ## [1. Data Viz with PowerBI & SQL Server : Adventure Works Cycles Financial Reporting Project](https://github.com/jjivaldoDA/Power-BI-financial-report-project)🚲📊
