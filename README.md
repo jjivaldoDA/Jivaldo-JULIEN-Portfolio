@@ -1,4 +1,4 @@
-# Jivaldo JULIEN Data Analytics Portfolio 
+Welcome to my professional portfolio! Here, you'll find a showcase of my skills and experience in data analysis, business intelligence, and reporting, highlighted through various projects.
 
 # [1. Data Viz with PowerBI & SQL Server : Adventure Works Cycles Financial Reporting Project](https://github.com/jjivaldoDA/Power-BI-financial-report-project)
 Welcome to the Adventure Works Cycles Financial Reporting Project! This repository showcases my skills in data analysis, SQL, and Power BI by creating an insightful Profitability Analysis Report for Adventure Works Cycles.
