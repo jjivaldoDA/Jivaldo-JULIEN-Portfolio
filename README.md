@@ -21,7 +21,7 @@ As part of my master's project at IAE Gustave Eiffel (2021), we analyzed the 201
 
 ## Connect with me
 
-- [LinkedIn 🔗](www.linkedin.com/in/jivaldo-julien-2429211a0)
+- 🔗[LinkedIn](www.linkedin.com/in/jivaldo-julien-2429211a0)
 - ✉️ jivaldo.julien@gmail.com
 
 
