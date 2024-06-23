@@ -19,5 +19,9 @@ As part of my Master's program at IAE Gustave Eiffel (2021), we conducted a proj
 ## [6. PCA using R : World Happiness](https://github.com/jjivaldoDA/World_Happiness)🌍😊
 As part of my master's project at IAE Gustave Eiffel (2021), we analyzed the 2017 World Happiness Report to understand global well-being. This report by the UN's Sustainable Development Solutions Network uses indicators like GDP per capita, life expectancy, generosity index, and corruption perception to measure happiness across countries. Using Principal Component Analysis (PCA) with R, we aimed to highlight differences among countries based on these variables and identify key trends.
 
+## Connect with me
+
+- [LinkedIn 🔗](www.linkedin.com/in/jivaldo-julien-2429211a0)
+- Email: ✉️ jivaldo.julien@gmail.com
 
 
