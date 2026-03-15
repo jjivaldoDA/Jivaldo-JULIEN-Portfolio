@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jivaldo Julien — Data Analyst · Power BI · Freelance</title>
+  <meta name="description" content="Portfolio de Jivaldo Julien — Data Analyst certifié PL-300, spécialiste Power BI, SQL, Python. Disponible en freelance à Paris." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #111111;
+      --black2:  #181818;
+      --black3:  #1e1e1e;
+      --yellow:  #e8c547;
+      --yellow2: #f0d060;
+      --cream:   #f0ede6;
+      --cream2:  #e8e4da;
+      --grey:    #888888;
+      --border:  3px solid #111111;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--black);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      border-left: var(--border);
+      border-right: var(--border);
+      min-height: 100vh;
+    }
+
+    /* ── TOPBAR (nav) ── */
+    .topbar {
+      background: var(--black);
+      border-bottom: var(--border);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .topbar-dots { display: flex; gap: 6px; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-r { background: #ff5f56; }
+    .dot-y { background: #ffbd2e; }
+    .dot-g { background: #27c93f; }
+    .topbar-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #555;
+      margin-left: 12px;
+    }
+    .topbar-links {
+      margin-left: auto;
+      display: flex;
+      gap: 24px;
+    }
+    .topbar-links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #666;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: color .2s;
+    }
+    .topbar-links a:hover { color: var(--yellow); }
+
+    /* ── HEADER ── */
+    .header {
+      background: var(--black);
+      border-bottom: var(--border);
+    }
+    .header-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .h-left {
+      padding: 40px 36px 32px;
+      border-right: var(--border);
+    }
+    .h-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #666;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+    .h-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px;
+      color: #fff;
+      line-height: .88;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+    .h-name .line2 { color: var(--yellow); display: block; }
+    .h-desc {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.7;
+      font-weight: 300;
+      border-left: 2px solid #2a2a2a;
+      padding-left: 14px;
+      max-width: 380px;
+    }
+    .h-right {
+      padding: 40px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .h-role {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--yellow);
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+    .badges-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 8px 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: var(--yellow);
+      letter-spacing: 1px;
+      transition: border-color .2s, background .2s;
+    }
+    .badge:hover { background: #1e1e1e; border-color: var(--yellow); }
+    .badge-dot { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
+    .badge-dot.grey { background: #444; }
+    .badge.dim { color: #555; }
+    .contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .contact {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #555;
+      text-decoration: none;
+      letter-spacing: .5px;
+      transition: color .2s;
+    }
+    .contact:hover { color: var(--yellow); }
+    .contact::before { content: '→  '; color: #333; }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      background: var(--yellow);
+      border-bottom: var(--border);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 7px 0;
+    }
+    .marquee-track {
+      display: inline-block;
+      animation: marquee 24s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      color: var(--black);
+      letter-spacing: 3px;
+      margin: 0 16px;
+    }
+
+    /* ── BODY ── */
+    .body {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+    }
+
+    /* ── MAIN ── */
+    .main-col { border-right: var(--border); }
+
+    .sec-header {
+      background: var(--black);
+      padding: 10px 24px;
+      border-bottom: var(--border);
+    }
+    .sec-header span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      color: var(--yellow);
+      letter-spacing: 4px;
+    }
+
+    /* Projects */
+    .proj-list {}
+    .proj-row {
+      display: grid;
+      grid-template-columns: 52px 1fr 48px;
+      border-bottom: 2px solid var(--black);
+      cursor: pointer;
+      transition: background .15s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .proj-row:last-child { border-bottom: none; }
+    .proj-row:hover { background: #e8e4da; }
+    .proj-row:hover .proj-arrow { color: var(--black); }
+    .proj-num {
+      background: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--black);
+      border-right: 2px solid var(--black);
+      flex-shrink: 0;
+    }
+    .proj-content { padding: 14px 18px; }
+    .proj-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.4;
+      margin-bottom: 5px;
+    }
+    .proj-tech {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: #888;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .proj-desc {
+      font-size: 11px;
+      color: #666;
+      line-height: 1.5;
+      font-weight: 300;
+    }
+    .proj-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #bbb;
+      border-left: 2px solid var(--black);
+      transition: color .2s;
+    }
+
+    /* ── SIDEBAR ── */
+    .side-col { background: var(--cream); }
+
+    .skill-block {
+      padding: 16px 18px;
+      border-bottom: 2px solid var(--black);
+    }
+    .skill-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: #888;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .skill-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      color: var(--black);
+      letter-spacing: 1px;
+      line-height: 1.1;
+    }
+
+    .cert-block {
+      background: var(--yellow);
+      padding: 16px 18px;
+      border-bottom: 2px solid var(--black);
+    }
+    .cert-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: #555;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .cert-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      color: var(--black);
+      line-height: 1.4;
+      letter-spacing: 1px;
+    }
+
+    .exp-block {
+      padding: 12px 18px;
+      border-bottom: 2px solid var(--black);
+    }
+    .exp-block:last-of-type { border-bottom: none; }
+    .exp-co {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 17px;
+      color: var(--black);
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+    .exp-role {
+      font-size: 11px;
+      color: #777;
+      font-weight: 300;
+      margin-bottom: 1px;
+    }
+    .exp-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: #aaa;
+      letter-spacing: 1px;
+    }
+
+    /* ── ABOUT SECTION ── */
+    .about-section {
+      border-top: var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .about-left {
+      padding: 32px 36px;
+      border-right: var(--border);
+    }
+    .about-right { padding: 32px 28px; }
+    .about-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: var(--black);
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+    .about-text {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .stack-item {
+      background: var(--black);
+      border-radius: 3px;
+      padding: 8px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .stack-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      color: var(--yellow);
+      letter-spacing: 1px;
+    }
+    .stack-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8px;
+      color: #555;
+      letter-spacing: 1px;
+    }
+    .bar-wrap { margin-top: 6px; height: 2px; background: #2a2a2a; border-radius: 2px; overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--yellow); border-radius: 2px; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--black);
+      border-top: var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-left {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #444;
+      letter-spacing: 1px;
+    }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      color: var(--yellow);
+      text-decoration: none;
+      letter-spacing: 2px;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .header-inner { grid-template-columns: 1fr; }
+      .h-left { border-right: none; border-bottom: var(--border); }
+      .body { grid-template-columns: 1fr; }
+      .main-col { border-right: none; }
+      .about-section { grid-template-columns: 1fr; }
+      .about-left { border-right: none; border-bottom: var(--border); }
+      .h-name { font-size: 52px; }
+      .topbar-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ── NAV ── -->
+  <nav class="topbar">
+    <div class="topbar-dots">
+      <div class="dot dot-r"></div>
+      <div class="dot dot-y"></div>
+      <div class="dot dot-g"></div>
+    </div>
+    <span class="topbar-title">~/jivaldo-julien — data_analyst_portfolio</span>
+    <div class="topbar-links">
+      <a href="#projets">Projets</a>
+      <a href="#about">À propos</a>
+      <a href="https://www.linkedin.com/in/jivaldo-julien-2429211a0/" target="_blank">LinkedIn</a>
+      <a href="mailto:jivaldo.julien@gmail.com">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="h-left">
+        <div class="h-tag">// DATA ANALYST · POWER BI · FREELANCE · PARIS</div>
+        <div class="h-name">
+          JIVALDO
+          <span class="line2">JULIEN</span>
+        </div>
+        <p class="h-desc">
+          Transformer la donnée brute en décision stratégique. 4 ans d'expérience
+          en finance, industrie et banque publique. Expert Power BI certifié PL-300,
+          disponible pour missions freelance.
+        </p>
+      </div>
+      <div class="h-right">
+        <div class="h-role">Power BI · SQL · Python · Fabric</div>
+        <div class="badges-list">
+          <div class="badge"><div class="badge-dot"></div>PL-300 POWER BI DATA ANALYST ✓</div>
+          <div class="badge"><div class="badge-dot"></div>DP-600 FABRIC ENGINEER (EN COURS)</div>
+          <div class="badge dim"><div class="badge-dot grey"></div>LEAN YELLOW BELT</div>
+          <div class="badge dim"><div class="badge-dot grey"></div>IAE GUSTAVE EIFFEL — MASTER 2022</div>
+        </div>
+        <div class="contacts">
+          <a class="contact" href="mailto:jivaldo.julien@gmail.com">jivaldo.julien@gmail.com</a>
+          <a class="contact" href="tel:0651407577">06 51 40 75 77</a>
+          <a class="contact" href="https://www.linkedin.com/in/jivaldo-julien-2429211a0/" target="_blank">linkedin.com/in/jivaldo-julien</a>
+          <a class="contact" href="https://jjivaldoda.github.io/Jivaldo-JULIEN-Portfolio/" target="_blank">Portfolio GitHub</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── MARQUEE ── -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-text">PL-300 CERTIFIED</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">BPIFRANCE</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">POWER BI</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">MICROSOFT FABRIC</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">SQL SERVER</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">PYTHON</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">LEAN YELLOW BELT</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">IAE GUSTAVE EIFFEL</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">DISPONIBLE FREELANCE</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">ETL · DAX · RLS</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">PARIS &amp; REMOTE</span>
+      <span class="marquee-text">·</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-text">PL-300 CERTIFIED</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">BPIFRANCE</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">POWER BI</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">MICROSOFT FABRIC</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">SQL SERVER</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">PYTHON</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">LEAN YELLOW BELT</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">IAE GUSTAVE EIFFEL</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">DISPONIBLE FREELANCE</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">ETL · DAX · RLS</span>
+      <span class="marquee-text">·</span>
+      <span class="marquee-text">PARIS &amp; REMOTE</span>
+      <span class="marquee-text">·</span>
+    </div>
+  </div>
+
+  <!-- ── BODY ── -->
+  <div class="body" id="projets">
+
+    <!-- MAIN — Projects -->
+    <div class="main-col">
+      <div class="sec-header"><span>PROJETS</span></div>
+      <div class="proj-list">
+
+        <a class="proj-row" href="https://github.com/jjivaldoDA/Power-BI-financial-report-project" target="_blank">
+          <div class="proj-num">01</div>
+          <div class="proj-content">
+            <div class="proj-title">Adventure Works — Financial Reporting</div>
+            <div class="proj-tech">POWER BI · SQL SERVER · FINANCE</div>
+            <div class="proj-desc">Analyse de rentabilité pour Adventure Works Cycles. Modélisation, KPIs financiers, dashboard Power BI.</div>
+          </div>
+          <div class="proj-arrow">→</div>
+        </a>
+
+        <a class="proj-row" href="https://github.com/jjivaldoDA/Baby_names" target="_blank">
+          <div class="proj-num">02</div>
+          <div class="proj-content">
+            <div class="proj-title">Baby Names — SQL Data Exploration</div>
+            <div class="proj-tech">SQL · SÉRIES TEMPORELLES · US SSA DATA</div>
+            <div class="proj-desc">Analyse des tendances des prénoms américains sur plus d'un siècle. Requêtes SQL avancées sur données SSA.</div>
+          </div>
+          <div class="proj-arrow">→</div>
+        </a>
+
+        <a class="proj-row" href="https://github.com/jjivaldoDA/YahooFinanceWebScraping" target="_blank">
+          <div class="proj-num">03</div>
+          <div class="proj-content">
+            <div class="proj-title">Yahoo Finance — Web Scraping</div>
+            <div class="proj-tech">PYTHON · BEAUTIFULSOUP · REQUESTS · PANDAS</div>
+            <div class="proj-desc">Extraction de données financières des acteurs majeurs du marché automobile. Export CSV pour analyse.</div>
+          </div>
+          <div class="proj-arrow">→</div>
+        </a>
+
+        <a class="proj-row" href="https://github.com/jjivaldoDA/Nashville-housing-data-cleaning" target="_blank">
+          <div class="proj-num">04</div>
+          <div class="proj-content">
+            <div class="proj-title">Nashville Housing — Data Cleaning</div>
+            <div class="proj-tech">MYSQL · ETL · DATA QUALITY · WORKBENCH</div>
+            <div class="proj-desc">Nettoyage d'un dataset immobilier du Tennessee : doublons, valeurs manquantes, normalisation, réduction dimensionnelle.</div>
+          </div>
+          <div class="proj-arrow">→</div>
+        </a>
+
+        <a class="proj-row" href="https://github.com/jjivaldoDA/Data_mining_QPV" target="_blank">
+          <div class="proj-num">05</div>
+          <div class="proj-content">
+            <div class="proj-title">France QPV — Data Mining & Clustering</div>
+            <div class="proj-tech">R · PCA · K-MEANS · CLUSTERING · LOGIT · IAE 2021</div>
+            <div class="proj-desc">Analyse de 100 quartiers prioritaires français. PCA, clustering hiérarchique, arbre de décision, régression logistique.</div>
+          </div>
+          <div class="proj-arrow">→</div>
+        </a>
+
+        <a class="proj-row" href="https://github.com/jjivaldoDA/World_Happiness" target="_blank">
+          <div class="proj-num">06</div>
+          <div class="proj-content">
+            <div class="proj-title">World Happiness — PCA Analysis</div>
+            <div class="proj-tech">R · PCA · STATISTIQUES · UN DATA 2017</div>
+            <div class="proj-desc">Analyse comparative du bonheur mondial via le rapport ONU 2017. ACP pour identifier les tendances globales de bien-être.</div>
+          </div>
+          <div class="proj-arrow">→</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="side-col">
+
+      <div class="sec-header"><span>STACK</span></div>
+
+      <div class="skill-block">
+        <div class="skill-label">BI & DATAVIZ</div>
+        <div class="skill-name">POWER BI<br>TABLEAU<br>QLIKSENSE</div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-label">DATA ENGINEERING</div>
+        <div class="skill-name">SQL<br>PYTHON<br>FABRIC</div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-label">AUTOMATISATION</div>
+        <div class="skill-name">POWER AUTOMATE<br>PANDAS · SSIS</div>
+      </div>
+
+      <div class="cert-block">
+        <div class="cert-label">CERTIFICATIONS MICROSOFT</div>
+        <div class="cert-name">
+          PL-300 ✓ — 2024<br>
+          DP-600 ↗ — 2026
+        </div>
+      </div>
+
+      <div class="sec-header"><span>EXPÉRIENCE</span></div>
+
+      <div class="exp-block">
+        <div class="exp-co">BPIFRANCE</div>
+        <div class="exp-role">Data Analyst — Direction Innovation</div>
+        <div class="exp-date">SEPT. 2024 – PRÉSENT</div>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-co">PRECISION VALVE CORP.</div>
+        <div class="exp-role">FP&A Data Analyst — Boulogne-Billancourt</div>
+        <div class="exp-date">SEPT. 2021 – SEPT. 2023</div>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-co">IAE GUSTAVE EIFFEL</div>
+        <div class="exp-role">Master Data Analyst — Études de Marché</div>
+        <div class="exp-date">2020 – 2022</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── ABOUT ── -->
+  <section class="about-section" id="about">
+    <div class="about-left">
+      <div class="about-title">À PROPOS</div>
+      <p class="about-text">
+        Data Analyst certifié PL-300 avec 4 ans d'expérience dans des secteurs exigeants —
+        banque publique (Bpifrance), industrie internationale (Precision Valve Corporation) et finance.
+      </p>
+      <p class="about-text">
+        Spécialisé dans la création de solutions data de bout en bout : de l'architecture SQL et
+        l'ETL jusqu'aux dashboards Power BI déployés en production. Formateur confirmé, j'ai piloté
+        la migration Tableau → Power BI à l'échelle groupe et accompagné les équipes métier.
+      </p>
+      <p class="about-text">
+        Actuellement disponible pour des missions freelance : conseil BI, développement Power BI,
+        formation utilisateurs, gouvernance et modernisation des architectures data.
+      </p>
+    </div>
+    <div class="about-right">
+      <div class="about-title">STACK</div>
+      <div class="stack-grid">
+        <div class="stack-item">
+          <div class="stack-name">POWER BI</div>
+          <div class="stack-sub">DAX · POWER QUERY · RLS</div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:96%"></div></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-name">SQL</div>
+          <div class="stack-sub">AZURE · SERVER · SSIS</div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:88%"></div></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-name">PYTHON</div>
+          <div class="stack-sub">PANDAS · SCRAPING</div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:74%"></div></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-name">FABRIC</div>
+          <div class="stack-sub">DATAFLOWS · LAKEHOUSE</div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-name">EXCEL</div>
+          <div class="stack-sub">POWER PIVOT · VBA</div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-name">R / SAS</div>
+          <div class="stack-sub">PCA · STATS · MODÈLES</div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:65%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <span class="footer-left">© 2026 JIVALDO JULIEN · PARIS, FRANCE</span>
+    <div class="footer-links">
+      <a href="mailto:jivaldo.julien@gmail.com">EMAIL</a>
+      <a href="https://www.linkedin.com/in/jivaldo-julien-2429211a0/" target="_blank">LINKEDIN ↗</a>
+      <a href="https://jjivaldoda.github.io/Jivaldo-JULIEN-Portfolio/" target="_blank">GITHUB ↗</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
